@@ -1,0 +1,9 @@
+[submodule "Sasha/vendor/spdlog"]
+	path = Sasha/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Sasha/vendor/GLFW"]
+	path = Sasha/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
+[submodule "Sasha/vendor/imgui"]
+	path = Sasha/vendor/imgui
+	url = https://github.com/TheCherno/imgui

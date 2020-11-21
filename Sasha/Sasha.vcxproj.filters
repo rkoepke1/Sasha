@@ -1,36 +1,95 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sasha">
+      <UniqueIdentifier>{B519140E-212E-3CBF-EAAF-DF1E568338F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sasha\Core">
+      <UniqueIdentifier>{2D973AF5-194F-7C42-8256-559E6E2D1733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sasha\Events">
+      <UniqueIdentifier>{F9275F33-E58A-EED7-8E10-278E7A52BA5A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Sasha\Core.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sasha\Application.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sasha.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Sasha.h" />
+    <ClInclude Include="src\Sasha\Core\Application.h">
+      <Filter>Sasha\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sasha\EntryPoint.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Sasha\Core\Core.h">
+      <Filter>Sasha\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sasha\Core\EntryPoint.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Core\KeyCodes.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Core\Layer.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Core\LayerStack.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Core\Log.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Core\MouseCodes.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Core\Window.h">
+      <Filter>Sasha\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Events\ApplicationEvent.h">
+      <Filter>Sasha\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Events\Event.h">
+      <Filter>Sasha\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Events\KeyEvent.h">
+      <Filter>Sasha\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sasha\Events\MouseEvent.h">
+      <Filter>Sasha\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shpch.h" />
+    <ClInclude Include="src\Sasha\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Sasha\Application.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sasha\Core\Application.cpp">
+      <Filter>Sasha\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sasha\Core\Layer.cpp">
+      <Filter>Sasha\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sasha\Core\LayerStack.cpp">
+      <Filter>Sasha\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sasha\Core\Log.cpp">
+      <Filter>Sasha\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shpch.cpp" />
+    <ClCompile Include="src\Sasha\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

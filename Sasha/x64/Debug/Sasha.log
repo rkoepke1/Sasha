@@ -1,0 +1,9 @@
+﻿  Application.cpp
+  Log.cpp
+C:\dev\Sasha\Sasha\src\Sasha\Log.h(18,54): warning C4251: 'Sasha::Log::s_CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Sasha::Log'
+C:\dev\Sasha\Sasha\vendor\spdlog\include\spdlog\details\registry.h(34): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+C:\dev\Sasha\Sasha\src\Sasha\Log.h(19,56): warning C4251: 'Sasha::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Sasha::Log'
+C:\dev\Sasha\Sasha\vendor\spdlog\include\spdlog\details\registry.h(34): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+  Generating Code...
+     Creating library ..\bin\Debug-%(cfg.system}-x86_64\Sasha\Sasha.lib and object ..\bin\Debug-%(cfg.system}-x86_64\Sasha\Sasha.exp
+  Sasha.vcxproj -> C:\dev\Sasha\x64\Debug\Sasha.dll
