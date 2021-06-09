@@ -14,15 +14,20 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Sasha/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sasha/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sasha/vendor/ImGui"
+IncludeDir["glm"] = "Sasha/vendor/glm"
+
 
 include "Sasha/vendor/GLFW"
 include "Sasha/vendor/Glad"
 include "Sasha/vendor/ImGui"
 
+
 project "Sasha"
 	location "Sasha"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -32,7 +37,15 @@ project "Sasha"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
+
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -41,47 +54,49 @@ project "Sasha"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 	
 	links
 	{
 		"GLFW",
-		"Glad",
+		"Glad", 
 		"ImGui",
 		"opengl32.lib"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
-			"SH_PLATFORM_WINDOWS;",
-			"SH_BUILD_DLL;",
-			"GLFW_INCLUDE_NONE"
+			"SH_PLATFORM_WINDOWS",
+			"SH_BUILD_DLL",
+			"GFLW_INCLUDE_NONE"
 		}
+
 	filter "configurations:Debug"
 		defines "SH_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SH_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SH_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 	
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -95,8 +110,10 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Sasha/vendor/spdlog/include;",
-		"Sasha/src"
+		"Sasha/vendor/spdlog/include",
+		"Sasha/src",
+		"Sasha/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -105,23 +122,24 @@ project "Sandbox"
 	}
 
 	filter "system:Windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
-			"SH_PLATFORM_WINDOWS;",
+			"SH_PLATFORM_WINDOWS",
 		}
 
 	filter "configurations:Debug"
 		defines "SH_DEBUG"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SH_RELEASE"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SH_DIST"
-		optimize "On"
+		runtime "Release"
+		optimize "on"

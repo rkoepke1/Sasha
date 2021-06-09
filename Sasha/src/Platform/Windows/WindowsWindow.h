@@ -1,10 +1,13 @@
 #pragma once
 #include "Sasha/Core/Window.h"
+#include "Sasha/Renderer/GraphicsContext.h"
+#include "Platform/OpenGL/OpenGLContext.h"
+
 
 struct GLFWwindow;
 namespace Sasha {
 
-	class WindowsWindow : public Window{
+	class   WindowsWindow : public Window{
 	public:
 		WindowsWindow(const WindowProps& props);
 		virtual ~WindowsWindow();
@@ -19,12 +22,14 @@ namespace Sasha {
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
+		inline virtual void* GetNativeWindow() const {	return m_Window; }
+
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
-
+		GraphicsContext* m_Context;
 		struct WindowData
 		{
 			std::string Title;

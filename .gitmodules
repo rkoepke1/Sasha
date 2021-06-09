@@ -7,3 +7,6 @@
 [submodule "Sasha/vendor/imgui"]
 	path = Sasha/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Sasha\\vendor\\glm"]
+	path = Sasha\\vendor\\glm
+	url = https://github.com/g-truc/glm

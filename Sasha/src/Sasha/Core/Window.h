@@ -10,8 +10,8 @@ namespace Sasha {
 	struct WindowProps
 	{
 		std::string Title;
-		uint32_t Width;
-		uint32_t Height;
+		int Width;
+		int Height;
 
 		WindowProps(const std::string& title = "Hazel Engine",
 			uint32_t width = 1600,
@@ -41,6 +41,6 @@ namespace Sasha {
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Scope<Window> Create(const WindowProps& props = WindowProps());
+		static Window* Create(const WindowProps& props = WindowProps());
 	};
 }

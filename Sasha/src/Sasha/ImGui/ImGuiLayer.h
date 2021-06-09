@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sasha/Core/Layer.h"
+#include "Sasha/Core/Core.h"
 
 #include "Sasha/Events/ApplicationEvent.h"
 #include "Sasha/Events/KeyEvent.h"
@@ -8,7 +9,7 @@
 
 namespace Sasha {
 
-	class ImGuiLayer : public Layer
+	class   ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
@@ -16,14 +17,13 @@ namespace Sasha {
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
-		virtual void OnEvent(Event& e) override;
+		virtual void OnImGuiRender() override;
 
 		void Begin();
 		void End();
 
-		void BlockEvents(bool block) { m_BlockEvents = block; }
 
-		void SetDarkThemeColors();
+
 	private:
 		bool m_BlockEvents = true;
 		float m_Time = 0.0f;
@@ -31,6 +31,3 @@ namespace Sasha {
 
 }
 
-class ImGuiLayer
-{
-};

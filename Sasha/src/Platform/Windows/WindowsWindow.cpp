@@ -1,21 +1,26 @@
 #include "shpch.h"
 #include "WindowsWindow.h"
-#include "Sasha/Core/Core.h"
 #include "Sasha/Core/Log.h"
 
-
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include "Sasha/Events/KeyEvent.h"
 #include "Sasha/Events/MouseEvent.h"
 #include "Sasha/Events/ApplicationEvent.h"
+
+
+
+
 
 namespace Sasha {
 	static bool s_GLFWInitialized = false;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		SH_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
+		SH_CORE_ERROR("Renderer Error ({0}): {1}", error, description);
+	}
+
+	Window* Window::Create(const WindowProps& props)
+	{
+		return new WindowsWindow(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -30,6 +35,7 @@ namespace Sasha {
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -44,11 +50,13 @@ namespace Sasha {
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
-
 		m_Window = glfwCreateWindow( m_Data.Width, m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		SH_CORE_ASSERT(status, "Failed to initialize Glad!");
+		
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
+		
+		
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -142,7 +150,9 @@ namespace Sasha {
 
 	void WindowsWindow::OnUpdate()
 	{
-		glfwSwapBuffers(m_Window);
+
+
+		m_Context->SwapBuffers();
 		glfwPollEvents();
 	}
 

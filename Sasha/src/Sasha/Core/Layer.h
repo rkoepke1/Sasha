@@ -3,7 +3,7 @@
 #include "Sasha/Events/Event.h"
 
 namespace Sasha {
-	class SASHA_API Layer
+	class   Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");

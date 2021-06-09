@@ -6,7 +6,7 @@
 
 namespace Sasha {
 
-	class SASHA_API Log
+	class   Log
 	{
 	public:
 		static void Init();

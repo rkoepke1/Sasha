@@ -9,8 +9,7 @@ public:
 
 	void OnUpdate() override
 	{
-		if (Sasha::Input::IsKeyPressed(Sasha::Key::Tab))
-			SH_CORE_INFO("TAB KEY IS PRESSED!");
+	
 	}
 
 	void OnEvent(Sasha::Event& event) override
@@ -23,7 +22,7 @@ class Sandbox : public Sasha::Application
 public:
 	Sandbox()
 	{
-	
+		PushLayer(new ExampleLayer());
 	}
 	~Sandbox()
 	{

@@ -5,7 +5,7 @@
 
 namespace Sasha {
 
-	class SASHA_API KeyEvent : public Event
+	class   KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -19,7 +19,7 @@ namespace Sasha {
 		int m_KeyCode;
 	};
 
-	class SASHA_API KeyPressedEvent : public KeyEvent
+	class   KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -40,7 +40,7 @@ namespace Sasha {
 		int m_RepeatCount;
 	};
 
-	class SASHA_API KeyReleasedEvent : public KeyEvent
+	class   KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)
@@ -56,7 +56,7 @@ namespace Sasha {
 		EVENT_CLASS_TYPE(Keyreleased)
 	};
 
-	class SASHA_API KeyTypedEvent : public KeyEvent
+	class   KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode)
